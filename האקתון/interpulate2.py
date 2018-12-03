@@ -1,4 +1,4 @@
-#https://gist.github.com/aurelienpierre/1d9826e7db078e048bf437e516a7a4b2
+# https://gist.github.com/aurelienpierre/1d9826e7db078e048bf437e516a7a4b2
 from sympy import Symbol, simplify, lambdify
 import numpy as np
 import matplotlib.pyplot as plt
@@ -26,6 +26,8 @@ def interpolate_lagrange(x, x_values, y_values):
 x = Symbol('x')
 poly = simplify(interpolate_lagrange(x, [2, 3, 6], [-3.5, 1.25, 4.1]))
 print(str(poly))
+result = poly.evalf(subs={x: 3.83})
+print("f(3.83)=", result)
 x1 = np.linspace(-1, 2, 100)
 y1 = lambdify(x, poly)(x1)
 
